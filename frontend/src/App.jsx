@@ -6,7 +6,7 @@ import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup.jsx";
 import Landingpage from "./pages/landingpage.jsx";
 import Dashboard from "./pages/Home/Dashboard.jsx";
-import InterviewPrep from "./pages/interviewprep/Interviewprep.jsx";
+import InterviewPrep from "./pages/interviewprep/InterviewPrep.jsx";
 import UserProvider from './context/userContext.jsx';
 import ErrorBoundary from './components/ErrorBoundary.jsx';
 
