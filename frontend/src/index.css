@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Urbanist', sans-serif;
+    --breakpoint-3xl: 1920px;
+    --color-primary: #FF9324;
+    --color-accent: #7B61FF;
+    --color-gradient-from: #6A82FB;
+    --color-gradient-to: #FC5C7D;
+    --color-bg-light: #f5f7fa;
+    --color-bg-dark: #232526;
+    --color-card-shadow: 0 8px 32px 0 rgba(123, 97, 255, 0.12);
+    --color-modal-shadow: 0 8px 32px 0 rgba(123, 97, 255, 0.18);
+    --color-border: #e0e7ff;
+  }
+
+  html {
+    font-family: var(--font-display);
+  }
+
+  body {
+    background-color: #fcfbfc;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.4);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@layer utilities {
+  /* Blob Animations */
+  @keyframes blob1 {
+    0%, 100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -60px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 60px) scale(0.9);
+    }
+  }
+  @keyframes blob2 {
+    0%, 100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(-40px, 60px) scale(1.05);
+    }
+    66% {
+      transform: translate(20px, -60px) scale(0.95);
+    }
+  }
+  @keyframes blob3 {
+    0%, 100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(20px, 140px) scale(1.15);
+    }
+    66% {
+      transform: translate(-30px, -30px) scale(0.85);
+    }
+  }
+
+  .animate-blob1 {
+    animation: blob1 8s ease-in-out infinite;
+  }
+  .animate-blob2 {
+    animation: blob2 10s ease-in-out infinite;
+  }
+  .animate-blob3 {
+    animation: blob3 12s ease-in-out infinite;
+  }
+
+  /* Input & Button Styling */
+  .input-box {
+    @apply w-full flex justify-between gap-3 text-sm text-black bg-gray-50/50 rounded px-4 py-3 mb-4 mt-3 border border-gray-300;
+  }
+
+  .btn-primary {
+    @apply w-full flex items-center justify-center gap-3 text-sm font-medium text-white bg-black shadow-lg shadow-gray-400/20 rounded-lg px-4 py-3;
+  }
+
+  .btn-small {
+    @apply flex items-center justify-center gap-3 bg-gradient-to-r from-[#FF9324] to-[#e99a4b] text-sm font-semibold text-white px-4 py-2 rounded-lg;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-main {
+    background: linear-gradient(135deg, var(--color-gradient-from) 0%, var(--color-gradient-to) 100%);
+  }
+  .bg-gradient-accent {
+    background: linear-gradient(90deg, #7B61FF 0%, #6A82FB 100%);
+  }
+
+  /* Card and modal shadows */
+  .card-shadow {
+    box-shadow: var(--color-card-shadow);
+  }
+  .modal-shadow {
+    box-shadow: var(--color-modal-shadow);
+  }
+
+  /* Modal transitions */
+  .modal-animate {
+    transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  .modal-animate-open {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Card hover transitions */
+  .card-animate {
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .card-animate-hover:hover {
+    box-shadow: 0 12px 32px 0 rgba(123, 97, 255, 0.18);
+    transform: translateY(-4px) scale(1.03);
+  }
+
+  /* Button gradient and transitions */
+  .btn-gradient {
+    background: linear-gradient(90deg, #7B61FF 0%, #6A82FB 100%);
+    color: #fff;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    box-shadow: 0 2px 8px 0 rgba(123, 97, 255, 0.10);
+  }
+  .btn-gradient:hover {
+    background: linear-gradient(90deg, #6A82FB 0%, #7B61FF 100%);
+    box-shadow: 0 4px 16px 0 rgba(123, 97, 255, 0.18);
+    transform: scale(1.04);
+  }
+
+  /* Input focus ring */
+  .input-box:focus {
+    outline: 2px solid #7B61FF;
+    border-color: #7B61FF;
+    background: #f5f7ff;
+  }
+
+  /* Fade-in and scale-in animation for cards and dashboard */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .fade-in {
+    animation: fadeIn 0.7s cubic-bezier(0.4,0,0.2,1);
+  }
+}
